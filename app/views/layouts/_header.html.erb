@@ -1,0 +1,31 @@
+<header class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Home", home_path, id: "home", class: "navbar-brand" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-1" >
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+            <% if logged_admin? %>
+                <li><%= link_to "Create Assessment", about_path, id: "createAssessment" %></li>
+                <li><%= link_to "Edit Assessment", about_path, id: "editAssessment" %></li>
+            <%else%>
+                <li><%= link_to "Assessments", about_path, id: "assessments" %></li>
+            <%end%>
+            <li><%= link_to "Logout", logout_path, id: "logout", method: "delete"%></li>
+        <%else%>
+            <li><%= link_to "Login", login_path, id: "login" %></li>
+        <%end%>
+        <li><%= link_to "About", about_path, id: "about" %></li>
+        <li><%= link_to "Search", search_path, id: "search" %></li>
+      </ul>
+    </div>
+  </div>
+</header>

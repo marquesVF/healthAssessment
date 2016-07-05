@@ -31,3 +31,34 @@
     position: absolute;
     width: 250%;
 }
+
+.title{
+    font-size: small;
+    letter-spacing:0.5px !important;
+    font-weight: 800 !important;
+    color: rgba(30, 30,30, 0.6) !important;
+}
+
+
+/*-------------------*/
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    height: 40% !important;
+    /*zoom: 200%;*/
+    width: 100%;
+}
+
+.item {
+    display: none;
+    position: absolute;
+    height: 15em !important;
+    /*zoom: 100%;*/
+@include transition(.6s ease-in-out right);
+}
+
+.testes {
+    height:100%;
+    width: 100%;
+}

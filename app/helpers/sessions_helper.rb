@@ -21,4 +21,12 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def page(page)
+    @page = page
+  end
+
+  def title(title)
+    @title = title
+  end
 end

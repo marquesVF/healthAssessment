@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <link href="">
+</header>
+<%= render 'layouts/header' %>
+<body>
+
+  <div class="container">
+    <div class="row">
+
+      <h1 class="text-center">Assign Assessment</h1>
+
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+
+      <%= form_for(:session, url: assessment_new_path) do |f| %>
+          <div class="input-group">
+            <%= f.email_field :email, class: 'form-control', placeholder: "Insert nurse email"%>
+            <div class="input-group-btn">
+              <%= f.submit "Select", class: "btn btn-success" %>
+            </div>
+          </div>
+      <% end %>
+
+      <div class="panel panel-default" style="margin: 12px">
+        <div class="panel-heading">Available Nurses</div>
+
+        <table class="table">
+          <thead>
+            <th>Name</th>
+            <th>Email</th>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                </tr>
+            <% end %>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+</html>

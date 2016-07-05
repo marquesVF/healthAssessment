@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <header class="navbar navbar-default navbar-static-top menu">
+=======
+<header class="navbar navbar-default navbar-static-top" style="margin: 0px">
+>>>>>>> caf1771dda3b6b3a6af3eb972fae3b3127b75528
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -7,24 +11,59 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+<<<<<<< HEAD
       <div id="logo"><a id="" class="navbar-brand" href="<%=home_path%>"></a></div>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1" >
       <ul class="nav navbar-nav navbar-right" style="color:white">
+=======
+      <% if logged_in? %>
+          <% if logged_admin? %>
+              <%= link_to "Home", admin_path, id: "nurse", class: "navbar-brand" %>
+          <%else%>
+              <%= link_to "Home", nurses_path, id: "nurse", class: "navbar-brand" %>
+          <%end%>
+      <%else%>
+          <%= link_to "Home", home_path, id: "home", class: "navbar-brand" %>
+      <%end%>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-1" >
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "About", about_path, id: "about" %></li>
+        <li><%= link_to "Search", search_path, id: "search" %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+>>>>>>> caf1771dda3b6b3a6af3eb972fae3b3127b75528
         <% if logged_in? %>
             <% if logged_admin? %>
-                <li><%= link_to "Create Assessment", about_path, id: "createAssessment" %></li>
-                <li><%= link_to "Edit Assessment", about_path, id: "editAssessment" %></li>
+                <li role="presentation" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Assessment <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><%= link_to "Assign", admin_assessments_path, id: "assign" %></li>
+                    <li role="presentation"><%= link_to "Create", about_path, id: "create" %></li>
+                    <li role="presentation"><%= link_to "Edit", about_path, id: "edit" %></li>
+                  </ul>
+                </li>
             <%else%>
-                <li><%= link_to "Assessments", about_path, id: "assessments" %></li>
+                <li role="presentation" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Assessment <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><%= link_to "Apply", about_path, id: "apply" %></li>
+                    <li role="presentation"><%= link_to "Edit", about_path, id: "edit" %></li>
+                  </ul>
+                </li>
             <%end%>
             <li><%= link_to "Logout", logout_path, id: "logout", method: "delete"%></li>
         <%else%>
             <li><%= link_to "Login", login_path, id: "login" %></li>
         <%end%>
-        <li><%= link_to "About", about_path, id: "about" %></li>
-        <li><%= link_to "Search", search_path, id: "search" %></li>
       </ul>
     </div>
   </div>

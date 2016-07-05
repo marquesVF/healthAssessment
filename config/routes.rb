@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
-  get 'nurse' => 'nurses#menu'
+  get 'admin/menu'
 
-  get 'nurse/assessments'
+  get 'admin/assessments'
+
+  get 'assessment/new'
+
+  get 'assessment/edit'
+
+  get 'assessment/do'
+
+  get 'assessment/save'
+
+  get 'assessments' => 'assessment#menu'
+
+  get 'nurses' => 'nurses#menu'
+
+  get 'nurses/assessments'
 
   get 'users/new'
+
+  get 'admin' => 'admin#menu'
+
+  get 'admin/assessments'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

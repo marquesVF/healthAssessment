@@ -7,23 +7,13 @@ class NursesController < ApplicationController
     end
   end
 
-  def assessment
-  end
-
   def menu
     title(@current_user.name)
-    page("menu")
+    page("nurse_menu")
   end
 
   def assessments
-
-  end
-
-  def page(page)
-    @page = page
-  end
-
-  def title(title)
-    @title = title
+    title(@current_user.name)
+    page("nurse_menu")
   end
 end

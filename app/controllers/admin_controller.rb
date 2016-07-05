@@ -8,12 +8,10 @@ class AdminController < ApplicationController
   end
 
   def menu
-    title(@current_user.name)
-    page("admin_menu")
+
   end
 
   def assessments
-    title(@current_user.name)
-    page("admin_menu")
+    @users = User.admin(false)
   end
 end

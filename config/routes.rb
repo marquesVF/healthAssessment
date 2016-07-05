@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'admin/assessments'
 
-  get 'assessment/new'
+  post 'assessment/new'
 
   get 'assessment/edit'
 

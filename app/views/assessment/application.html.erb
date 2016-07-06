@@ -6,14 +6,15 @@
     <div class="row">
       <h1 class="text-center">Assessment Application</h1>
 
-      <div class="panel panel-group panel-default" style="margin: 12px">
-        <div class="panel-heading">!!Some valuable information here!!</div>
-        <div class="panel-body">
+      <!--<div class="panel panel-group panel-default" style="margin: 12px" role="tablist" aria-multiselectable="true">-->
+      <div class="panel-group" id="accordion" style="margin: 12px" role="tablist" aria-multiselectable="true">
+        <!--<div class="panel-heading">!!Some valuable information here!!</div>-->
+        <!--<div class="panel-body">-->
           <%= form_for(:session, url: assessment_save_path) do |f| %>
               <h3 class="text-center">Community Culture Inquiry</h3>
 
               <!--<h4>Physical Environment of a Community</h4>-->
-              <div class="panel panel-default">
+              <div class="panel panel-default" style="border: 0;">
                 <div class="panel-heading" role="tab" id="heading1">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -23,60 +24,376 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
                   <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <h4 class="text-center" style="background: gainsboro">Spatial dimensions</h4>
+                    <!--<h4 class="text-center">Boundaries, size, and distribution</h4>-->
+                    <%= f.label "Square miles of the community" %>
+                    <%= f.text_field :square_miles, class: 'form-control', placeholder: "Square Miles", type: "number", min: "0"%>
+
+                    <!--<h4 class="text-center">Regional position</h4>-->
+                    <div class="row" style="margin: 3px ;">
+                      <%= f.label "Is it?" %>
+                      <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                          <%= f.label :urban_rural, 'Urban', :value => 'Urban' %>
+                          <%= f.radio_button :urban_rural, 'Urban'%>
+                        </label>
+                        <label class="btn btn-default">
+                          <%= f.label :urban_rural, 'Rural', :value => 'Rural' %>
+                          <%= f.radio_button :urban_rural, 'Rural'%>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row" style="margin: 3px ;">
+                      <%= f.label "Is it?" %>
+                      <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                          <%= f.label :town_village, 'Town', :value => 'Town' %>
+                          <%= f.radio_button :town_village, 'Town'%>
+                        </label>
+                        <label class="btn btn-default">
+                          <%= f.label :town_village, 'County', :value => 'County' %>
+                          <%= f.radio_button :town_village, 'County'%>
+                        </label>
+                        <label class="btn btn-default">
+                          <%= f.label :town_village, 'Village', :value => 'Village' %>
+                          <%= f.radio_button :town_village, 'Village'%>
+                        </label>
+                        <label class="btn btn-default">
+                          <%= f.label :town_village, 'Part of a municipality', :value => 'Part of a municipality' %>
+                          <%= f.radio_button :town_village, 'Part of a municipality'%>
+                        </label>
+                      </div>
+                    </div>
+                    <%= f.label "Identify Distance to... (in miles)" %>
+                    <%= f.text_field :distance_other_community, class: 'form-control', placeholder: "... other communities", type: "number", min: "0"%>
+                    <%= f.text_field :distance_capital, class: 'form-control', placeholder: "... Capital", type: "number", min: "0"%>
+                    <%= f.label "List and describe local news source and relationship to geo-political units" %>
+                    <%= f.text_area :local_news_source, class: 'form-control'%>
+
+                    <%= f.label "Please describe other Regional Position features that are not described above" %>
+                    <%= f.text_area :other_regional_position_features, class: 'form-control'%>
+
+                    <!--<h4 class="text-center">Geophysical and climate factors</h4>-->
+                    <%= f.label "Please describe Natural features of the environment (e.g. waterways, mountains, plains, hills, deserts, coastal)" %>
+                    <%= f.text_area :natural_features, class: 'form-control'%>
+
+                    <%= f.label "Climate conditions throughout the year" %>
+                    <%= f.text_area :climate_conditions, class: 'form-control'%>
+
+                    <%= f.label "Human-made features (e.g. superhighways, high-rise apartments/condos, industrial parks, bridges, tunnels, shopping malls, sports arenas etc)" %>
+                    <%= f.text_area :human_made_features, class: 'form-control'%>
+
+                    <%= f.label "Please describe other geophysical and climate factors features that are not described above" %>
+                    <%= f.text_area :other_geophysical_features, class: 'form-control'%>
+
+                    <!--<h4 class="text-center">Land use</h4>-->
+                    <%= f.label "Designated: residential, recreational, commercial, industrial, agricultural, official, spiritual, religious etc." %>
+                    <%= f.text_area :land_use_designated, class: 'form-control'%>
+
+                    <%= f.label "Patterns of use: used by all members of the community, used by specific community members." %>
+                    <%= f.text_area :land_use_patterns, class: 'form-control'%>
+
+                    <%= f.label "Please describe other land use features that are not described above" %>
+                    <%= f.text_area :other_land_use_features, class: 'form-control'%>
+
+                    <%= f.label "Housing" %>
+                    <%= f.text_area :housing, class: 'form-control'%>
+
+                    <%= f.label "Transportation" %>
+                    <%= f.text_area :transportation, class: 'form-control'%>
+
+                    <%= f.label "Communication" %>
+                    <%= f.text_area :communication, class: 'form-control'%>
+
+                    <%= f.label "Mental Maps" %>
+                    <%= f.text_area :mental_maps, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Temporal (yearly, monthly, weekly, daily working calendars and schedules)</h4>
                   </div>
                 </div>
               </div>
 
               <!--<h4>Population of a Community</h4>-->
-              <div class="panel panel-default">
+              <div class="panel panel-default" style="border: 0;">
                 <div class="panel-heading" role="tab" id="heading2">
                   <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       Population of a Community
                     </a>
                   </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
                   <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <%= f.label "Young population" %>
+                    <%= f.text_field :young_population, class: 'form-control', placeholder: "Number of young population", type: "number", min: "0"%>
+                    <%= f.label "Adult population" %>
+                    <%= f.text_field :adult_population, class: 'form-control', placeholder: "Number of adult population", type: "number", min: "0"%>
+                    <%= f.label "Elder population" %>
+                    <%= f.text_field :elder_population, class: 'form-control', placeholder: "Number of elder population", type: "number", min: "0"%>
+                    <%= f.label "Male population" %>
+                    <%= f.text_field :male_population, class: 'form-control', placeholder: "Number of male population", type: "number", min: "0"%>
+                    <%= f.label "Female population" %>
+                    <%= f.text_field :female_population, class: 'form-control', placeholder: "Number of female population", type: "number", min: "0"%>
+
+                    <%= f.label "Ethnic and racial groups" %>
+                    <%= f.text_area :ethnical_racial_groups, class: 'form-control'%>
+
+                    <%= f.label "Income Average" %>
+                    <%= f.text_field :income_average, class: 'form-control', placeholder: "Income Average", type: "number", min: "0"%>
+
+                    <%= f.label "Education Level" %>
+                    <%= f.text_area :education_levels, class: 'form-control'%>
+
+                    <%= f.label "Residential and household characteristics" %>
+                    <%= f.text_area :residential_household_characteristics, class: 'form-control'%>
                   </div>
                 </div>
               </div>
 
               <!--<h4>Social Organization of a Community</h4>-->
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading2">
+              <div class="panel panel-default" style="border: 0;">
+                <div class="panel-heading" role="tab" id="heading3">
                   <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       Social Organization of a Community
                     </a>
                   </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading3">
                   <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <h4 class="text-center" style="background: gainsboro">Community institutions</h4>
+
+                    <%= f.label "Economic institutions" %>
+                    <%= f.text_area :economic_institutions, class: 'form-control'%>
+
+                    <%= f.label "Government institutions" %>
+                    <%= f.text_area :government_institutions, class: 'form-control'%>
+
+                    <%= f.label 'Domestic Institutions' %>
+                    <%= f.text_area :domestic_institutions, class: 'form-control'%>
+
+                    <%= f.label 'Religion Institutions' %>
+                    <%= f.text_area :religion_institutions, class: 'form-control'%>
+
+                    <%= f.label 'Recreation Institutions' %>
+                    <%= f.text_area :recreation_institutions, class: 'form-control'%>
+
+                    <%= f.label 'Voluntary Institutions' %>
+                    <%= f.text_area :voluntary_institutions, class: 'form-control'%>
                   </div>
                 </div>
               </div>
 
+              <h3 class="text-center">Community Health Assessment </h3>
 
-              <%= f.label "Insert your login information!" %>
-              <%= f.email_field :email, class: 'form-control', placeholder: "Email"%>
-              <h4></h4>
-              <%= f.password_field :password, class: 'form-control' ,placeholder: "Password"%>
-              <h4></h4>
+              <!--<h4>Environmental Health of a Community</h4>-->
+              <div class="panel panel-default" style="border: 0;">
+                <div class="panel-heading" role="tab" id="heading2">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                      Environmental Health of a Community
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                  <div class="panel-body">
+                    <%= f.label 'Outdoor air quality' %>
+                    <%= f.text_area :outdoor_air_quality, class: 'form-control'%>
 
-              <h3>Community Culture Inquiry </h3>
+                    <%= f.label 'Surface and ground-water quality' %>
+                    <%= f.text_area :surface_ground_water_quality, class: 'form-control'%>
 
-              <h4>Environmental Health of a Community</h4>
+                    <%= f.label 'Food contamination' %>
+                    <%= f.text_area :food_contamination, class: 'form-control'%>
 
-              <h4>Populational Health of a Community</h4>
+                    <%= f.label 'Noise pollution' %>
+                    <%= f.text_area :noise_pollution, class: 'form-control'%>
 
-              <%= f.submit "Log in", class: "btn btn-success" %>
-          <% end %>
+                    <%= f.label 'Disease vectors' %>
+                    <%= f.text_area :disease_vectors, class: 'form-control'%>
+
+                    <%= f.label 'Disaster preparedness' %>
+                    <%= f.text_area :disaster_preparedness, class: 'form-control'%>
+
+                    <%= f.label 'Crime' %>
+                    <%= f.text_area :crime, class: 'form-control'%>
+
+                    <%= f.label 'Accidents' %>
+                    <%= f.text_area :accidents, class: 'form-control'%>
+
+                    <%= f.label 'Home Communities' %>
+                    <%= f.text_area :homes_communities, class: 'form-control'%>
+
+                    <%= f.label 'Community Buildings' %>
+                    <%= f.text_area :community_buildings, class: 'form-control'%>
+
+                    <%= f.label 'Energy Management' %>
+                    <%= f.text_area :energy_management, class: 'form-control'%>
+
+                    <%= f.label 'Global Health' %>
+                    <%= f.text_area :global_health, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Toxic substances and hazardous-waste management</h4>
+                    <%= f.label 'Solid waste management' %>
+                    <%= f.text_area :solid_waste_management, class: 'form-control'%>
+
+                    <%= f.label 'Sewage Management' %>
+                    <%= f.text_area :sewage_management, class: 'form-control'%>
+
+                    <%= f.label 'Radioactive waste Management' %>
+                    <%= f.text_area :radioactive_waste_management, class: 'form-control'%>
+
+                    <%= f.label 'Chemical Pesticides Management' %>
+                    <%= f.text_area :chemical_pesticides_management, class: 'form-control'%>
+                  </div>
+                </div>
+              </div>
+
+              <!--<h4>Populational Health of a Community</h4>-->
+              <div class="panel panel-default" style="border: 0;">
+                <div class="panel-heading" role="tab" id="heading2">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
+                      Populational Health of a Community
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                  <div class="panel-body">
+                    <%= f.label 'Infectious Diseases' %>
+                    <%= f.text_area :infectious_diseases, class: 'form-control'%>
+
+                    <%= f.label 'Chronic Diseases' %>
+                    <%= f.text_area :chronic_diseases, class: 'form-control'%>
+
+                    <%= f.label 'Chronic Disability' %>
+                    <%= f.text_area :chronic_disability, class: 'form-control'%>
+
+                    <%= f.label 'Behavioral and mental health' %>
+                    <%= f.text_area :behavioral_mental_health, class: 'form-control'%>
+
+                    <%= f.label 'Maternal, infant, and child health' %>
+                    <%= f.text_area :maternal_infant_health, class: 'form-control'%>
+
+                    <%= f.label 'Early and middle-childhood health' %>
+                    <%= f.text_area :childhood_health, class: 'form-control'%>
+
+                    <%= f.label 'Adolescent health' %>
+                    <%= f.text_area :adolescent_health, class: 'form-control'%>
+
+                    <%= f.label 'Older-adult health' %>
+                    <%= f.text_area :older_adult_health, class: 'form-control'%>
+
+                    <%= f.label 'Lesbian, gay, bisexual, and transgender health' %>
+                    <%= f.text_area :lgbt_health, class: 'form-control'%>
+
+                    <%= f.label 'Occupational safety and health' %>
+                    <%= f.text_area :occupational_safety_health, class: 'form-control'%>
+
+                    <%= f.label 'Population health behaviors' %>
+                    <%= f.text_area :population_health_behaviors, class: 'form-control'%>
+                  </div>
+                </div>
+              </div>
+
+              <!--<h4>Healthcare Organization: Institutional and Ideological Dimensions</h4>-->
+              <div class="panel panel-default" style="border: 0;">
+                <div class="panel-heading" role="tab" id="heading2">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseOne">
+                      Healthcare Organization: Institutional and Ideological Dimensions
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                  <div class="panel-body">
+                    <%= f.label 'Public health financing' %>
+                    <%= f.text_area :public_health_financing, class: 'form-control'%>
+
+                    <%= f.label 'Indigenous and alternative health systems' %>
+                    <%= f.text_area :indigenous_alternative_health_systems, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Health workforce</h4>
+                    <%= f.label 'Nursing' %>
+                    <%= f.text_area :nursing, class: 'form-control'%>
+
+                    <%= f.label 'Medical' %>
+                    <%= f.text_area :medical, class: 'form-control'%>
+
+                    <%= f.label 'Dental' %>
+                    <%= f.text_area :dental, class: 'form-control'%>
+
+                    <%= f.label 'Social work' %>
+                    <%= f.text_area :social_work, class: 'form-control'%>
+
+                    <%= f.label 'Mental health' %>
+                    <%= f.text_area :mental_health, class: 'form-control'%>
+
+                    <%= f.label 'Nutrition' %>
+                    <%= f.text_area :nutrition, class: 'form-control'%>
+
+                    <%= f.label 'Optical/Audiology' %>
+                    <%= f.text_area :optical_audiology_health, class: 'form-control'%>
+
+                    <%= f.label 'Therapies, such as physical, occupational, speech' %>
+                    <%= f.text_area :therapies, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Public health agencies</h4>
+                    <%= f.label 'Health departments' %>
+                    <%= f.text_area :health_departments, class: 'form-control'%>
+
+                    <%= f.label 'Hospitals' %>
+                    <%= f.text_area :personal_healthcare_hospitals, class: 'form-control'%>
+
+                    <%= f.label 'Nursing homes, extended-care facilities, assisted living' %>
+                    <%= f.text_area :personal_healthcare_assisted_living, class: 'form-control'%>
+
+                    <%= f.label 'Home-health agencies' %>
+                    <%= f.text_area :personal_healthcare_home_health, class: 'form-control'%>
+
+                    <%= f.label 'Freestanding ambulatory facilities' %>
+                    <%= f.text_area :personal_healthcare_ambulatory, class: 'form-control'%>
+
+                    <%= f.label 'Health planning agencies' %>
+                    <%= f.text_area :health_planning_agencies, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Public health financing</h4>
+                    <%= f.label 'Commercial third-party payers' %>
+                    <%= f.text_area :third_payers_commercial, class: 'form-control'%>
+
+                    <%= f.label 'Government third-party payers' %>
+                    <%= f.text_area :third_payers_government, class: 'form-control'%>
+
+                    <%= f.label 'Self-pay Financing' %>
+                    <%= f.text_area :self_pay_financing, class: 'form-control'%>
+
+                    <%= f.label 'Charity Financing' %>
+                    <%= f.text_area :charity_financing, class: 'form-control'%>
+
+                    <%= f.label 'Public Assistance Financing' %>
+                    <%= f.text_area :public_assistance_financing, class: 'form-control'%>
+
+                    <h4 class="text-center" style="background: gainsboro">Health values and beliefs</h4>
+                    <%= f.label 'Customs' %>
+                    <%= f.text_area :customs_health_values, class: 'form-control'%>
+
+                    <%= f.label 'Traditions' %>
+                    <%= f.text_area :traditions_health_values, class: 'form-control'%>
+
+                    <%= f.label 'Values' %>
+                    <%= f.text_area :values_health_values, class: 'form-control'%>
+
+                  </div>
+                </div>
+              </div>
+        <!--</div>-->
+        <div class="panel-footer clearfix">
+          <div class="pull-right">
+            <%= f.submit "Save", class: "btn btn-success" %>
+          </div>
         </div>
-      </div>
+        <% end %>
+      <!--</div>-->
     </div>
   </div>
   <%= @assessment %>

@@ -1,0 +1,64 @@
+.menu{
+    background-color: rgba(0, 97, 78, 0.8);
+    color: white !important;
+}
+
+.navbar-default .navbar-nav > li > a , .navbar-default .navbar-brand{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: white;
+}
+
+.navbar-default .navbar-toggle:hover{
+    background-color: rgba(0, 97,78, 1);
+}
+
+.navbar-default .navbar-toggle:focus{
+    background-color: rgba(0, 97,78, 0);
+}
+
+#logo
+{
+    background-image: url("icon.png");
+    background-repeat: no-repeat;
+    float:left;
+    position: absolute;
+    width: 250%;
+}
+
+.title{
+    font-size: small;
+    letter-spacing:0.5px !important;
+    font-weight: 800 !important;
+    color: rgba(30, 30,30, 0.6) !important;
+}
+
+
+/*-------------------*/
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    height: 40% !important;
+    /*zoom: 200%;*/
+    width: 100%;
+}
+
+.item {
+    display: none;
+    position: absolute;
+    height: 15em !important;
+    /*zoom: 100%;*/
+@include transition(.6s ease-in-out right);
+}
+
+.testes {
+    height:100%;
+    width: 100%;
+}

@@ -25,7 +25,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass',       '3.2.0.0'
 
-gem 'bcrypt',               '3.1.7'
+gem 'tzinfo-data'
+
+gem 'coffee-script-source', '1.8.0'
+
+#gem 'bcrypt',               '3.1.7'
+
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

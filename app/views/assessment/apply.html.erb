@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/header' %>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Assessment Application Selection</h1>
+
+      <div class="panel panel-default" style="margin: 12px">
+        <div class="panel-heading">Available Assessments</div>
+
+        <table class="table">
+          <thead>
+          <th>Date of Creation</th>
+          <th>Status</th>
+          <th></th>
+          </thead>
+          <tbody>
+          <% @assessment.each do |a| %>
+              <tr>
+                <td><%= a.created_at %></td>
+                <td>
+                  <% if a.finished %>
+                    <%= 'Finished' %>
+                  <% else %>
+                    <%= 'Unfinished' %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if a.finished %>
+                      <%= 'Completed' %>
+                  <% else %>
+                      <%= link_to "Apply", apply_url(a.id)%>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

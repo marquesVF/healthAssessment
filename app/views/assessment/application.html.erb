@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/header' %>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Assessment Application</h1>
+
+      <div class="panel panel-group panel-default" style="margin: 12px">
+        <div class="panel-heading">!!Some valuable information here!!</div>
+        <div class="panel-body">
+          <%= form_for(:session, url: assessment_save_path) do |f| %>
+              <h3 class="text-center">Community Culture Inquiry</h3>
+
+              <!--<h4>Physical Environment of a Community</h4>-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading1">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Physical Environment of a Community
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+
+              <!--<h4>Population of a Community</h4>-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading2">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                      Population of a Community
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+
+              <!--<h4>Social Organization of a Community</h4>-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading2">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                      Social Organization of a Community
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+
+
+              <%= f.label "Insert your login information!" %>
+              <%= f.email_field :email, class: 'form-control', placeholder: "Email"%>
+              <h4></h4>
+              <%= f.password_field :password, class: 'form-control' ,placeholder: "Password"%>
+              <h4></h4>
+
+              <h3>Community Culture Inquiry </h3>
+
+              <h4>Environmental Health of a Community</h4>
+
+              <h4>Populational Health of a Community</h4>
+
+              <%= f.submit "Log in", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= @assessment %>
+</body>
+</html>
+
+

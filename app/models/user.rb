@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   # This will be used by controllers
   #   source: http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
   #
-  scope :admin, -> (admin) {where admin: false}
+  scope :admin, -> (admin) {where admin: admin}
 end

@@ -18,14 +18,22 @@ class AssessmentController < ApplicationController
   def edit
   end
 
-  def do
+  def apply
+    current_user
+    # @assessment = Assessment.find_by(user_id: @current_user.id)
+    @assessment = Assessment.byUser(@current_user.id)
+  end
+
+  def application
+    @apply = true
+    @assessment = Assessment.find_by(id: params[:id])
   end
 
   def save
   end
 
   def list
-    redirect_to
+    @apply = false
   end
 
   def menu

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get 'assessment/edit'
 
-  get 'assessment/do'
+  get 'assessment/apply'
+
+  get 'assessment/:id/apply' => 'assessment#application', as: :apply
 
   get 'assessment/save'
 

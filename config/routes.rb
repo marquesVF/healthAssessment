@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'assessment/:id/apply' => 'assessment#application', as: :apply
 
-  get 'assessment/save'
+  post 'assessment/save'
 
   get 'assessments' => 'assessment#menu'
 

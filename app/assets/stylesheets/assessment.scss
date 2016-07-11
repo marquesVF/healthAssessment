@@ -1,3 +1,36 @@
 // Place all the styles related to the Assessment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bottom-menu {
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  background-color: rgba(0, 97,78, 1);
+}
+
+.bottom-menu li > a {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bottom-menu li{
+  background-color: rgba(0, 97,78, 1);
+}
+
+.bottom-menu li > a:hover{
+  background-color: rgba(0, 97,78, 1);
+}
+
+.bottom-menu > li:focus{
+  background-color: rgba(0, 97,78, 0);
+  colo: black;
+}
+
+/*For Save button to stay at the right corner*/
+.btn {
+  margin-top: 7px;
+  margin-right: 56px;
+  margin-left: 40%;
+}

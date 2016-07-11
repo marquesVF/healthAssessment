@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630184744) do
+ActiveRecord::Schema.define(version: 20160707192544) do
 
   create_table "assessments", force: :cascade do |t|
     t.float    "community_square_miles"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 20160630184744) do
     t.boolean  "finished"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.text     "natural_features"
+    t.text     "public_health_financing"
   end
 
   add_index "assessments", ["user_id", "created_at"], name: "index_assessments_on_user_id_and_created_at"

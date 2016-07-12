@@ -1,15 +1,17 @@
 class AssessmentController < ApplicationController
   def new
     @email = params[:session][:email]
+    @assessment_name = params[:session][:name]
     @user = User.find_by(email: @email)
-    if @user
+    if @user and @assessment_name
       @assessment = Assessment.new(user_id: @user.id)
+      @assessment.name = @assessment_name
       if @assessment.save
         flash.now[:success] = 'Assessment assigned sucefully!'
         render 'admin/menu'
       end
     else
-      flash.now[:danger] = 'Invalid email. Try again!'
+      flash.now[:danger] = 'Invalid email or assessment name. Try again!'
       @users = User.admin(false)
       render 'admin/assessments'
     end

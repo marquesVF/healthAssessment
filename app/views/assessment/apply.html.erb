@@ -11,6 +11,7 @@
 
         <table class="table">
           <thead>
+          <th>Name</th>
           <th>Date of Creation</th>
           <th>Status</th>
           <th></th>
@@ -18,7 +19,8 @@
           <tbody>
           <% @assessment.each do |a| %>
               <tr>
-                <td><%= a.created_at %></td>
+                <td><%= a.name %></td>
+                <td><%= a.created_at.strftime("%b %d, %Y") %></td>
                 <td>
                   <% if a.finished %>
                     <%= 'Finished' %>

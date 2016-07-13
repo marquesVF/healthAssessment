@@ -3,8 +3,30 @@
 <%= render 'layouts/header' %>
 <body>
   <div class="container">
+
     <div class="row">
-      
+      <div class="panel panel-default" style="margin: 12px">
+        <div class="panel-heading">Available Assessments <%=  %> </div>
+          <table class="table">
+            <thead>
+            <th>Name</th>
+            <th>Date of Creation</th>
+            <th>Download</th>
+            </thead>
+            <tbody>
+            <% @assessments.each do |a| %>
+                <tr>
+                  <td><%= a.name %></td>
+                  <td><%= a.created_at.strftime("%b %d, %Y") %></td>
+                  <td>
+                    <%= link_to image_tag('csv.png'), download_path(a.id) %>
+                  </td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    <div class="text-right">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </div>
   </div>
 </body>

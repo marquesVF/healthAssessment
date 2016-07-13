@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def search
+    @assessments = Assessment.all
     render :search
   end
 

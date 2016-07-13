@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'assessment/:id/apply' => 'assessment#application', as: :apply
 
+  get 'assessment/:id/download.csv' => 'assessment#download', as: :download
+
   post 'assessment/save'
 
   get 'assessments' => 'assessment#menu'

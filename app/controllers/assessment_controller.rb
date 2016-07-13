@@ -32,6 +32,10 @@ class AssessmentController < ApplicationController
     @@currentAssessment = params[:id]
   end
 
+  def download
+    send_data Assessment.to_csv(params[:id])
+  end
+
   def save
     @assessment = Assessment.find_by(id: @@currentAssessment)
     @assessment.community_square_miles = params[:session][:community_square_miles]

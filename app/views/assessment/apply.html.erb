@@ -27,6 +27,9 @@
                   <% else %>
                     <%= 'Unfinished' %>
                   <% end %>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completeness %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completeness %>%;"></div>
+                  </div>
                 </td>
                 <td>
                   <% if a.finished %>

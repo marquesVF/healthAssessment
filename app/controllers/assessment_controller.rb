@@ -22,6 +22,7 @@ class AssessmentController < ApplicationController
 
   def apply
     current_user
+    calculateCompleteness
     # @assessment = Assessment.find_by(user_id: @current_user.id)
     @assessment = Assessment.byUser(@current_user.id)
   end
@@ -34,6 +35,13 @@ class AssessmentController < ApplicationController
 
   def download
     send_data Assessment.to_csv(params[:id])
+  end
+
+  def calculateCompleteness
+    total = Assessment.column_names.length
+    complete = Assessment.column_names.compact.length
+
+    @completeness = complete.to_f*100/total.to_f
   end
 
   def save

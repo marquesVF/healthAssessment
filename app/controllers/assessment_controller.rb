@@ -1,4 +1,12 @@
 class AssessmentController < ApplicationController
+  before_action :checkAssessment, only: [:application]
+
+  def checkAssessment
+    current_user
+    @assessment = Assessment.find_by(id: params[:id])
+    redirect_to(root_url) unless @assessment.user_id == @current_user.id
+  end
+
   def new
     @email = params[:session][:email]
     @assessment_name = params[:session][:name]
